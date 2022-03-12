@@ -23,7 +23,6 @@ const TrackPad = ({ audioSrc, currentSecond, isLoopOn = false }: Props) => {
     if (!isPlaying && isLoopOn && isReady && currentSecond === 1) {
       // @ts-ignore
       audioRef.current.play()
-      console.log('play')
       setIsPlaying(true)
     }
     if ((!isReady || !isLoopOn) && isPlaying) {
@@ -31,7 +30,6 @@ const TrackPad = ({ audioSrc, currentSecond, isLoopOn = false }: Props) => {
       audioRef.current.prev() // using prev because stop() doesn't reset track
       // @ts-ignore
       audioRef.current.stop()
-      console.log('stopped')
       setIsPlaying(false)
     }
   }, [isLoopOn, isReady, currentSecond, isPlaying])
